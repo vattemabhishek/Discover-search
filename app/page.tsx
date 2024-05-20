@@ -4,7 +4,7 @@ import Search from '@/components/Search'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { ApiResp } from './types'
+import { ApiResp, ResApiResp } from './types'
 
 const BASE_URL = '/googleapi/maps/api/place/textsearch/json?query='
 const GOOGLE_PLACE_KEY = process.env.NEXT_PUBLIC_GOOGLE_PLACE_KEY
@@ -16,7 +16,7 @@ export default function Home() {
 
   console.log(res)
   const getPlaceList = async (value: string) => {
-    const result = await axios.get<ApiResp[]>(
+    const result = await axios.get<ResApiResp>(
       BASE_URL + '?query=' + value + '&key=' + GOOGLE_PLACE_KEY
 
       //'https://maps.googleapis.com/maps/api/place/textsearch/json?query=hotels%20in%20newYork&key=AIzaSyCENWq_nyc4LASiYTXL-j6cGa5yS5mpCQM'

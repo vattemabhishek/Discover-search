@@ -43,3 +43,10 @@ export interface ApiResp {
   types: string[]
   user_ratings_total: number
 }
+
+export interface ResApiResp {
+  html_attributions: string
+  next_page_token: string
+  results: ApiResp[]
+  status: string
+}
